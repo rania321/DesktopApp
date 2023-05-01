@@ -368,7 +368,7 @@ void AmbulanceI::on_pb_pfdA_clicked()
     }
     out << "</table>\n"
             "<div style=\"position:absolute; bottom:0; right:0; width:30%; height:30%;\">"
-            "<img src=\"C:/Users/yacou/Desktop/Pictures/logo.png\" width=\"100%\" height=\"100%\"></div>"
+            "<img src=\"C:/Users/Rania/Pictures/logo.png\" width=\"100%\" height=\"100%\"></div>"
             "</body>\n"
             "</html>\n";
 

@@ -1,4 +1,7 @@
 #include "client.h"
+#include "clientc.h"
+#include "ambulancec.h"
+#include"ambulancei.h"
 #include "ui_client.h"
 #include<QSqlQuery>
 #include<QtDebug>
@@ -26,6 +29,7 @@
 #include<QAuthenticator>
 
 
+
 client::client(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::client)
@@ -35,6 +39,8 @@ client::client(QWidget *parent) :
     ui->phonec->setValidator(new QIntValidator(0,99999999,this));
     ui->tab_clients->setModel(c.afficherC());
     ui->comboBox_suppC->setModel(c.afficheroncomboc());
+    ui->comboBox_clientC->setModel(c.afficheroncomboCL());
+    ui->comboBox_ambuC->setModel(c.afficheroncomboA());
     int ret=A.connect_arduino(); // lancer la connexion à arduino
         switch(ret){
         case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
@@ -449,14 +455,11 @@ void client::update_labelC()
         ui->etatardC->setText("ALERTE!!");
         ui->etatardC->setText("ALERTE!!");// si les données reçues de arduino via la liaison série sont égales à 1
     // alors afficher ON
-        QString account_sid = "AC186682c6de28d2c2a16eef5c43cb45ae";
-            QString auth_token = "838fb29fb0d1a3430e95d97565ba7bc4";
-            QString from_number = "+16204104554"; // votre numéro Twilio
-            QString to_number = "+21699646424"; // numéro de téléphone du destinataire
-            QString message = "ALERTE! détection de gaz"; // message à envoyer
-            QString picture_url = ""; // URL de l'image, si vous voulez en envoyer une
-            bool verbose = true; // afficher les messages de débogage ou non
-        sendSMS(account_sid, auth_token, message, from_number, to_number, picture_url, verbose);
+        QSqlQuery query;
+            query.prepare("INSERT INTO GAZ (DETECT, DATEG) VALUES (:DETECT, :DATEG)");
+            query.bindValue(":DETECT", "DETECTION");
+            query.bindValue(":DATEG", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+            query.exec();
 
 
 }else if (data == "0")
@@ -524,4 +527,53 @@ void client::sendSMS(QString account_sid, QString auth_token, QString message, Q
            authenticator->setUser(account_sid);
            authenticator->setPassword(auth_token);
        });
+}
+
+void client::on_pb_gaz_clicked()
+{
+    clientc c ;
+    ui->tab_gazC->setModel(c.afficherGaz());
+}
+
+
+
+void client::on_comboBox_clientC_currentIndexChanged(const QString &arg1)
+{
+    ui->comboBox_clientC->currentText();
+}
+
+void client::on_comboBox_ambuC_currentIndexChanged(const QString &arg1)
+{
+    ui->comboBox_ambuC->currentText();
+}
+
+void client::on_pb_reserverC_clicked()
+{
+    QString selectedCINC = ui->comboBox_clientC->currentText();
+        QString selectedMATAMB = ui->comboBox_ambuC->currentText();
+
+        // Récupérer le CINC et le MATAMB correspondants dans les tables "clients" et "ambulances"
+        QSqlQuery clientQuery;
+        clientQuery.prepare("SELECT CINC FROM clients WHERE CINC=:CINC");
+        clientQuery.bindValue(":CINC", selectedCINC);
+        clientQuery.exec();
+        clientQuery.next();
+        QString cinc = clientQuery.value(0).toString();
+
+        QSqlQuery ambulanceQuery;
+        ambulanceQuery.prepare("SELECT MATAMB FROM ambulances WHERE MATAMB=:MATAMB");
+        ambulanceQuery.bindValue(":MATAMB", selectedMATAMB);
+        ambulanceQuery.exec();
+        ambulanceQuery.next();
+        QString matamb = ambulanceQuery.value(0).toString();
+
+        // Insérer les valeurs dans la table "reserver"
+        QSqlQuery insertQuery;
+        insertQuery.prepare("INSERT INTO reserver (CINC, MATAMB) VALUES (:CINC, :MATAMB)");
+        insertQuery.bindValue(":CINC", cinc);
+        insertQuery.bindValue(":MATAMB", matamb);
+        insertQuery.exec();
+
+        // Afficher un message de confirmation
+        QMessageBox::information(this, "Réservation", "La réservation a été effectuée avec succès !");
 }

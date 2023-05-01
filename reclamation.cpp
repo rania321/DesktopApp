@@ -170,20 +170,7 @@ void reclamation::on_reclamation_ajouter_clicked()
     {
         if(reclamation.ajouter())
         {
-            QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
-            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
-            {
-                QMessageBox::warning(this,"title","file not open");
-                return;
-            }
-            QTextStream outt(&f);
-            QString text = "  ajouter une reclamation \r\n";
-            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
-            outt << sDate;
-            outt << text ;
-            f.flush();
-            f.close();
 
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");
             smtp->sendMail("mohamedaziz.grissa@esprit.tn", "mohamedaziz.grissa@esprit.tn" , "Added reclamation",
@@ -227,20 +214,7 @@ void reclamation::on_reclamation_delete_clicked()
     int id = ui->tableView->model()->index(select_reclamation,0).data().toInt();
         if(Rtmp.supprimer(id))
     {
-        QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
-            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
-            {
-                QMessageBox::warning(this,"title","file not open");
-                return;
-            }
-            QTextStream outt(&f);
-            QString text = "  supprimer une reclamation \r\n";
-            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
-            outt << sDate;
-            outt << text ;
-            f.flush();
-            f.close();
             QString password = ui->password->text();
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");
             smtp->sendMail("mohamedaziz.grissa@esprit.tn", "mohamedaziz.grissa@esprit.tn" , "Removed reclamation",
@@ -329,20 +303,7 @@ void reclamation::on_reclamation_modifier_clicked()
 
     if(reclamation.modifier(id))
     {
-        QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
-            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
-            {
-                QMessageBox::warning(this,"title","file not open");
-                return;
-            }
-            QTextStream outt(&f);
-            QString text = "  modifier une reclamation \r\n";
-            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
-            outt << sDate;
-            outt << text ;
-            f.flush();
-            f.close();
 
             QString password = ui->password->text();
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");

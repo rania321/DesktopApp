@@ -31,6 +31,9 @@ public:
     QSqlQueryModel *afficher_nomc();
     QSqlQueryModel *afficher_adressec();
     void writeLog(int,QString);
+    QSqlQueryModel *afficherGaz();
+    QSqlQueryModel *afficheroncomboCL();
+    QSqlQueryModel *afficheroncomboA();
 
 
 private:

@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include "login2.h"
 #include "employe2c.h"
+#include "mainwindow.h"
 #include <QSqlQueryModel>
 #include "arduinoe.h"
 #include <QDialog>
@@ -43,6 +44,10 @@ private slots:
     void on_pushButtontri_clicked();
 
     void checkSeriel();
+
+    void on_pb_menuE_clicked();
+
+    void showMainMenu();
 
 private:
     Ui::employe2 *ui;

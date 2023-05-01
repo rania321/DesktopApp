@@ -239,9 +239,7 @@ void materielm::on_pb_statm_clicked()
                         }
                         if ( countEC!=0)
                         {
-
                             QPieSlice *slice1 = series->slices().at(1);
-
                             slice1->setLabel("non "+QString("%1%").arg(100*slice1->percentage(),3,'f',1));
                             slice1->setLabelVisible();
                             //slice1->setBrush(QColor(Qt::cyan));
@@ -259,7 +257,7 @@ void materielm::on_pb_statm_clicked()
                         // Used to display the chart
                         QChartView *chartView = new QChartView(chart);
                         chartView->setRenderHint(QPainter::Antialiasing);
-                        chartView->resize(1000,500);
+                        chartView->resize(400,200);
 
                         chartView->setParent(ui->horizontalFrame);
                         chart->legend()->hide();

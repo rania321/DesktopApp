@@ -123,8 +123,8 @@ background-color: #aaaaaa;
      <widget class="QLabel" name="label_49">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
+        <x>10</x>
+        <y>40</y>
         <width>261</width>
         <height>21</height>
        </rect>
@@ -144,66 +144,19 @@ background-color: #aaaaaa;
        <string>Liste des employees</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_14">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>40</y>
-        <width>31</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	
-	border-image: url(:/Downloads/326396841_708570531015679_44119472664975908_n.png);
-
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>:/Downloads/326396841_708570531015679_44119472664975908_n.png</normaloff>:/Downloads/326396841_708570531015679_44119472664975908_n.png</iconset>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="recherch_button">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>40</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	
-	border-image: url(:/Downloads/254293109_1118342951903609_3135421941897853154_n.png);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>:/Downloads/254293109_1118342951903609_3135421941897853154_n.png</normaloff>:/Downloads/254293109_1118342951903609_3135421941897853154_n.png</iconset>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pdf_button">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>20</y>
-        <width>41</width>
+        <x>240</x>
+        <y>30</y>
+        <width>31</width>
         <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	
-	border-image: url(:/Downloads/271308060_654389075566817_8511874093532438792_n.png);
+	border-image: url(:/2A3/qt/tsawer/pdf (2).png);
 }</string>
       </property>
       <property name="text">

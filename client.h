@@ -56,6 +56,14 @@ private slots:
 
     //void on_nomc_cursorPositionChanged(int arg1, int arg2);
 
+    void on_pb_gaz_clicked();
+
+    void on_comboBox_clientC_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_ambuC_currentIndexChanged(const QString &arg1);
+
+    void on_pb_reserverC_clicked();
+
 private:
     Ui::client *ui;
     clientc c;

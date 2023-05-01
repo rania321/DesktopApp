@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 
@@ -37,9 +38,9 @@ void MainWindow::on_pushButton_employe_clicked()
        layout->addWidget(employe);
 
        // Définir le layout pour la zone centrale de MainWindow
-       QWidget *centralWidget = new QWidget(this);
-       centralWidget->setLayout(layout);
-       setCentralWidget(centralWidget);
+   //    QWidget *centralWidget = new QWidget(this);
+     //  centralWidget->setLayout(layout);
+     //  setCentralWidget(centralWidget);
 
        // Utiliser l'opérateur flèche pour appeler une méthode de l'objet pointé par le pointeur employe
        employe->show();
@@ -68,6 +69,8 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     reclamation *rec = new reclamation;
-    this->close();
+   // this->close();
     rec->show();
 }
+
+

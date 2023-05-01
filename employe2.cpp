@@ -30,6 +30,7 @@ employe2::employe2(QWidget *parent) :
     ui(new Ui::employe2)
 {
     ui->setupUi(this);
+ //   connect(ui->pb_menuE, &QPushButton::clicked, this, &MainWindow::showMainMenu);
     ui->le_cin->setValidator(new QIntValidator(0,9999999,this));
     ui->tab_employe->setModel(E.afficher());
       ui->comboBox_SUPP->setModel(E.afficherencomboemploye());
@@ -251,13 +252,6 @@ void employe2::on_button_modifier_clicked()
 }
 
 
-
-
-
-
-
-
-
 void employe2::on_pdf_button_clicked()
 {
     QString strStream;
@@ -449,4 +443,14 @@ void employe2::on_pushButtontri_clicked()
 
 
 
+void employe2::showMainMenu()
+{
+    // Créer une nouvelle instance de la fenêtre du menu principal
+        employe2 *menuWindow = new employe2(this);
 
+        // Afficher la fenêtre du menu principal
+        menuWindow->show();
+
+        // Masquer la fenêtre principale
+        this->hide();
+}

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1235</width>
-    <height>580</height>
+    <height>548</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -298,8 +298,9 @@ background-color: #aaaaaa;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	border-image: url(:/Downloads/calendrier.png);
-color:white;
+	
+	
+	border-image: url(:/2A3/qt/tsawer/calendrier.png);
 }</string>
     </property>
     <property name="text">
@@ -353,7 +354,7 @@ color:white;
      <string notr="true">QPushButton{
 	
 	
-	border-image: url(:/Downloads/pdf.png);
+	border-image: url(:/2A3/qt/tsawer/pdf (2).png);
 }</string>
     </property>
     <property name="text">
@@ -373,7 +374,7 @@ color:white;
      <string notr="true">QPushButton{
 	
 	
-	border-image: url(:/Downloads/excel.png);
+	border-image: url(:/2A3/qt/tsawer/excel.png);
 }</string>
     </property>
     <property name="text">
@@ -765,7 +766,7 @@ border-radius:20px;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-image: url(:/Downloads/bouton-supprimer.png);
+	border-image: url(:/2A3/qt/tsawer/poubella.png);
 color:white;
 }</string>
    </property>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1321</width>
-    <height>825</height>
+    <width>1179</width>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>560</y>
+     <x>100</x>
+     <y>530</y>
      <width>56</width>
      <height>16</height>
     </rect>
@@ -374,8 +374,8 @@ background-color: #aaaaaa;
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>560</y>
+     <x>190</x>
+     <y>530</y>
      <width>56</width>
      <height>16</height>
     </rect>
@@ -387,8 +387,8 @@ background-color: #aaaaaa;
   <widget class="QLabel" name="label_qrcode">
    <property name="geometry">
     <rect>
-     <x>1070</x>
-     <y>50</y>
+     <x>950</x>
+     <y>80</y>
      <width>151</width>
      <height>171</height>
     </rect>
@@ -400,10 +400,10 @@ background-color: #aaaaaa;
   <widget class="QFrame" name="horizontalFrame">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>400</y>
-     <width>911</width>
-     <height>431</height>
+     <x>350</x>
+     <y>380</y>
+     <width>471</width>
+     <height>221</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
@@ -412,15 +412,15 @@ background-color: #aaaaaa;
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>60</y>
-     <width>631</width>
+     <y>40</y>
+     <width>591</width>
      <height>271</height>
     </rect>
    </property>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>40</x>
       <y>20</y>
       <width>241</width>
       <height>21</height>
@@ -444,7 +444,7 @@ background-color: #aaaaaa;
    <widget class="QPushButton" name="pb_pdfm">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>270</x>
       <y>20</y>
       <width>31</width>
       <height>31</height>
@@ -454,7 +454,7 @@ background-color: #aaaaaa;
      <string notr="true">QPushButton{
 	
 	
-	border-image: url(:/pdf.png);
+	border-image: url(:/2A3/qt/tsawer/pdf (2).png);
 }</string>
     </property>
     <property name="text">
@@ -477,7 +477,7 @@ background-color: #aaaaaa;
    <widget class="QTableView" name="tab_mat">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>40</x>
       <y>60</y>
       <width>521</width>
       <height>192</height>
@@ -487,8 +487,8 @@ background-color: #aaaaaa;
    <widget class="QLineEdit" name="rechercherm">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>10</y>
+      <x>350</x>
+      <y>20</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -511,7 +511,7 @@ color: rgb(27, 75, 101);
   <widget class="QPushButton" name="codeqr">
    <property name="geometry">
     <rect>
-     <x>1080</x>
+     <x>960</x>
      <y>270</y>
      <width>93</width>
      <height>28</height>
@@ -543,8 +543,8 @@ border-radius:20px;
   <widget class="QWidget" name="widget_3" native="true">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>340</y>
+     <x>340</x>
+     <y>310</y>
      <width>661</width>
      <height>51</height>
     </rect>
@@ -552,7 +552,7 @@ border-radius:20px;
    <widget class="QPushButton" name="pushButton_trimat">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>220</x>
       <y>10</y>
       <width>75</width>
       <height>23</height>
@@ -585,7 +585,7 @@ background-color: #aaaaaa;
    <widget class="QComboBox" name="comboBox_trimat">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>20</x>
       <y>10</y>
       <width>181</width>
       <height>22</height>
@@ -610,7 +610,7 @@ background-color: #aaaaaa;
    <widget class="QRadioButton" name="desc">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>310</x>
       <y>10</y>
       <width>95</width>
       <height>20</height>
@@ -643,7 +643,7 @@ background-color: #aaaaaa;
    <widget class="QRadioButton" name="asc">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>420</x>
       <y>10</y>
       <width>95</width>
       <height>20</height>
@@ -674,6 +674,39 @@ background-color: #aaaaaa;
     </property>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pb_statm">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>380</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-radius:5px;
+   border-right:1px solid #aaaaaa;
+	border-bottom:1px solid #aaaaaa;
+}
+QPushButton:enabled{
+background-color: rgb(98, 185, 203);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed{
+	background-color: rgb(190, 233, 231);
+	color: rgb(255, 255, 255);
+	border-radius:5px;
+}
+QPushButton:disabled{
+background-color: #aaaaaa;
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>stat</string>
+   </property>
+  </widget>
   <zorder>label_7</zorder>
   <zorder>label_10</zorder>
   <zorder>widget</zorder>
@@ -686,6 +719,7 @@ background-color: #aaaaaa;
   <zorder>widget_2</zorder>
   <zorder>codeqr</zorder>
   <zorder>widget_3</zorder>
+  <zorder>pb_statm</zorder>
  </widget>
  <resources/>
  <connections/>

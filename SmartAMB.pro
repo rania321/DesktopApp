@@ -17,9 +17,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-LIBS += "C:\Users\DELL\OneDrive\Bureau\2a3-smart-ambulance-agency-2a3-integration3\libs\ssleay32.dll"
-LIBS += "C:\Users\DELL\OneDrive\Bureau\2a3-smart-ambulance-agency-2a3-integration3\libs\libeay32.dll"
-LIBS += "C:\Users\DELL\OneDrive\Bureau\2a3-smart-ambulance-agency-2a3-integration3\libs\libssl32.dll"
+LIBS += "C:\Users\Rania\Desktop\integrationfinale\libs\ssleay32.dll"
+LIBS += "C:\Users\Rania\Desktop\integrationfinale\libs\libeay32.dll"
+LIBS += "C:\Users\Rania\Desktop\integrationfinale\libs\libssl32.dll"
 
 SOURCES += \
     ambulancec.cpp \

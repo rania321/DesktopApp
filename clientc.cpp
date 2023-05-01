@@ -71,6 +71,25 @@ bool clientc::ajouterC()
     return query.exec();
 }
 
+/*bool clientc::ajouterC()
+{
+
+    QSqlQuery query;
+    QString cinc_string=QString::number(cinc);
+    QString phonec_string=QString::number(phonec);
+    query.prepare("INSERT INTO Clients (cinc, nomc, emailc, adressec, phonec, sexec) "
+                  "VALUES (:cinc, :nomc, :emailc, :adressec, :phonec, :sexec)");
+          query.bindValue(":cinc", cinc_string);
+          query.bindValue(":nomc", nomc);
+          query.bindValue(":emailc", emailc);
+          query.bindValue(":adressec", adressec);
+          query.bindValue(":phonec", phonec_string);
+          query.bindValue(":sexec", sexec);
+
+
+    return query.exec();
+}*/
+
 bool clientc::supprimerC(int cinc)
 {
     QSqlQuery query;
@@ -174,3 +193,36 @@ void clientc::writeLog(int id,QString message)
     // Fermeture du fichier
     file.close();
 }
+
+QSqlQueryModel * clientc ::afficherGaz()
+    {
+
+        QSqlQueryModel * model= new QSqlQueryModel();
+
+        model->setQuery("select * from GAZ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Detection"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date de détection"));
+
+
+            return model;
+    }
+
+QSqlQueryModel * clientc ::afficheroncomboCL()
+{
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from clients");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cinc"));
+
+        return model; }
+
+QSqlQueryModel * clientc ::afficheroncomboA()
+{
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from ambulances");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("matamb"));
+
+        return model; }

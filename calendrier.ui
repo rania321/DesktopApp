@@ -53,7 +53,7 @@ border-radius:20px;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-image: url(:/Downloads/bouton-supprimer.png);
+	border-image: url(:/2A3/qt/tsawer/poubella.png);;
 color:white;
 }</string>
    </property>
