@@ -32,7 +32,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/Pictures/Saved Pictures/photo-1554734867-bf3c00a49371.jfif);
+     <string notr="true">border-image: url(C:/Users/Rania/Desktop/2A3/qt/tsawer/ambulance);
 border-radius:20px;</string>
     </property>
     <property name="text">
@@ -180,82 +180,6 @@ background-color:rgba(105,118,132,200);
     </property>
     <property name="text">
      <string>Forgot your user Name or Password ?</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>390</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Source Code Pro</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>E</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>390</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Source Code Pro</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>E</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>390</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Source Code Pro</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>E</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>390</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Source Code Pro</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>E</string>
     </property>
    </widget>
   </widget>

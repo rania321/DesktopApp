@@ -40,6 +40,12 @@ private slots:
 
     void checkSerial();
 
+    void on_reclamation_modifier_show_4_clicked();
+
+    void on_reclamation_modifier_show_3_clicked();
+
+    void on_reclamation_modifier_show_7_released();
+
 private:
     Ui::reclamation *ui;
     reclam Rtmp;

@@ -18,7 +18,12 @@
 #include <QTextDocument>
 #include <QDesktopServices>
 #include <QUrl>
-
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QJsonDocument>
 #include "smtp.h"
 #include "mainwindow.h"
 reclamation::reclamation(QWidget *parent) :
@@ -170,7 +175,20 @@ void reclamation::on_reclamation_ajouter_clicked()
     {
         if(reclamation.ajouter())
         {
+            QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
+            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
+            {
+                QMessageBox::warning(this,"title","file not open");
+                return;
+            }
+            QTextStream outt(&f);
+            QString text = "  ajouter une reclamation \r\n";
+            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
+            outt << sDate;
+            outt << text ;
+            f.flush();
+            f.close();
 
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");
             smtp->sendMail("mohamedaziz.grissa@esprit.tn", "mohamedaziz.grissa@esprit.tn" , "Added reclamation",
@@ -214,7 +232,20 @@ void reclamation::on_reclamation_delete_clicked()
     int id = ui->tableView->model()->index(select_reclamation,0).data().toInt();
         if(Rtmp.supprimer(id))
     {
+        QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
+            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
+            {
+                QMessageBox::warning(this,"title","file not open");
+                return;
+            }
+            QTextStream outt(&f);
+            QString text = "  supprimer une reclamation \r\n";
+            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
+            outt << sDate;
+            outt << text ;
+            f.flush();
+            f.close();
             QString password = ui->password->text();
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");
             smtp->sendMail("mohamedaziz.grissa@esprit.tn", "mohamedaziz.grissa@esprit.tn" , "Removed reclamation",
@@ -303,7 +334,20 @@ void reclamation::on_reclamation_modifier_clicked()
 
     if(reclamation.modifier(id))
     {
+        QFile f("C:/Users/DELL/OneDrive/Bureau/PROJET/historic.txt");
 
+            if(!f.open(QFile::WriteOnly |QIODevice::Append | QFile::Text))
+            {
+                QMessageBox::warning(this,"title","file not open");
+                return;
+            }
+            QTextStream outt(&f);
+            QString text = "  modifier une reclamation \r\n";
+            QString sDate = QDateTime::currentDateTime().toString("dddd dd MMMM yyyy hh:mm:ss.zzz :");
+            outt << sDate;
+            outt << text ;
+            f.flush();
+            f.close();
 
             QString password = ui->password->text();
             Smtp* smtp = new Smtp("mohamedaziz.grissa@esprit.tn",password, "smtp.gmail.com");
@@ -392,4 +436,100 @@ void reclamation::on_reclamation_modifier_show_6_clicked()
 
     QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
     select_reclamation = -1;
+}
+
+void reclamation::on_reclamation_modifier_show_4_clicked()
+{
+        QString userInput = ui->lineEdit_2->text();
+        if (!userInput.isEmpty()) {
+            // Append user input to conversation
+            QString userMessage = "<div style=' border-radius: 10px;"
+                                  "padding: 10px;'><strong>User:</strong> " +
+                                  userInput + "</div>";
+            ui->textEdit->append(userMessage);
+            QJsonArray conversationJsonArray;
+            QJsonObject messageJsonObject{
+                {"role", "system"},
+                {"content",
+                 "You are an Assistant in an Ambulance Management System"}};
+            conversationJsonArray.append(messageJsonObject);
+            // Iterate over each line in the QTextEdit
+            for (QString line : ui->textEdit->toPlainText().split("\n")) {
+                line = line.trimmed();
+
+                if (line.startsWith("User: ")) {
+                    QString messageContent = line.mid(6); // Remove "User: " prefix
+                    QJsonObject messageJsonObject{{"role", "user"},
+                                                  {"content", messageContent}};
+                    conversationJsonArray.append(messageJsonObject);
+                } else if (line.startsWith("AI: ")) {
+                    QString messageContent = line.mid(4); // Remove "AI: " prefix
+                    QJsonObject messageJsonObject{{"role", "assistant"},
+                                                  {"content", messageContent}};
+                    conversationJsonArray.append(messageJsonObject);
+                }
+            }
+
+            // Create JSON request
+            QJsonObject request;
+            request.insert("model", "gpt-3.5-turbo");
+            request.insert("messages", conversationJsonArray);
+
+            // Send request to OpenAI API
+            QUrl url("https://api.openai.com/v1/chat/completions");
+            QNetworkRequest req(url);
+            req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+            req.setRawHeader(
+                "Authorization",
+                "Bearer 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");
+            QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+
+            QNetworkReply *reply =
+                manager->post(req, QJsonDocument(request).toJson());
+            ui->reclamation_modifier_show_4->setEnabled(false);
+            // Connect signals and slots
+            connect(reply, &QNetworkReply::finished, this, [reply, this]() {
+                if (reply->error() == QNetworkReply::NoError) {
+                    // Parse response JSON
+                    QJsonObject response =
+                        QJsonDocument::fromJson(reply->readAll()).object();
+                    QString text = response.value("choices")
+                                       .toArray()
+                                       .at(0)
+                                       .toObject()
+                                       .value("message")
+                                       .toObject()
+                                       .value("content")
+                                       .toString();
+                    // Append response to conversation
+                    QString aiResponse = "<div style='background-color: #fff; "
+                                         "border-radius: 10px; "
+                                         "border: 1px solid #ccc; "
+                                         "padding: 10px;'><strong>AI:</strong> " +
+                                         text.trimmed().replace("\n\n", "<br>") +
+                                         "</div>";
+                    ui->textEdit->append("AI: " +
+                                         text.trimmed().replace("\n\n", "\n"));
+                    ui->reclamation_modifier_show_4->setEnabled(true);
+                } else {
+                    qDebug() << reply->errorString();
+                }
+                reply->deleteLater();
+            });
+        }
+
+        // Clear user input field
+        ui->lineEdit_2->clear();
+
+}
+
+void reclamation::on_reclamation_modifier_show_3_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+void reclamation::on_reclamation_modifier_show_7_released()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+
 }

@@ -441,16 +441,3 @@ void employe2::on_pushButtontri_clicked()
             ui->tab_employe->setModel(E.afficher());}
 }
 
-
-
-void employe2::showMainMenu()
-{
-    // Créer une nouvelle instance de la fenêtre du menu principal
-        employe2 *menuWindow = new employe2(this);
-
-        // Afficher la fenêtre du menu principal
-        menuWindow->show();
-
-        // Masquer la fenêtre principale
-        this->hide();
-}

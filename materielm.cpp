@@ -312,7 +312,7 @@ void materielm::on_codeqr_clicked()
 
         if(ui->tab_mat->currentIndex().row()==-1)
                    QMessageBox::information(nullptr, QObject::tr("Suppression"),
-                                            QObject::tr("Veuillez Choisir un citoyen du Tableau.\n"
+                                            QObject::tr("Veuillez Choisir un materiel du Tableau.\n"
                                                         "Click Ok to exit."), QMessageBox::Ok);
                else
                {
